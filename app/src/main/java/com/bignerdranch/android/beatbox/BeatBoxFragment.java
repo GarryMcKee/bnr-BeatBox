@@ -36,6 +36,7 @@ public class BeatBoxFragment extends Fragment {
 
         //Set a 3 column GridLayoutManager for the recycler view
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+        binding.recyclerView.setAdapter(new SoundAdapter());
         return binding.getRoot();
     }
 
