@@ -5,6 +5,8 @@ import android.content.res.AssetManager;
 import android.util.Log;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Garry on 02/08/2017.
@@ -15,6 +17,7 @@ public class BeatBox {
     private static final String SOUNDS_FOLDER = "sample_sounds";
 
     private AssetManager mAssets;
+    private List<Sound> mSounds = new ArrayList<>();
 
     public BeatBox(Context context) {
         mAssets = context.getAssets();
@@ -31,5 +34,14 @@ public class BeatBox {
             Log.e(TAG, "Could not list assets", ioe);
             return;
         }
+
+        for (String filename : soundNames) {
+            String assetPath = SOUNDS_FOLDER + "/" + filename;
+            mSounds.add(new Sound(assetPath));
+        }
+    }
+
+    public List<Sound> getSounds() {
+        return mSounds;
     }
 }
