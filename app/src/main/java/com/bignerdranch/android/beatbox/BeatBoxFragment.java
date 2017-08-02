@@ -20,6 +20,8 @@ import com.bignerdranch.android.beatbox.databinding.ListItemSoundBinding;
 
 public class BeatBoxFragment extends Fragment {
 
+    private BeatBox mBeatBox;
+
     public static BeatBoxFragment newInstance() {
         
         Bundle args = new Bundle();
@@ -27,6 +29,13 @@ public class BeatBoxFragment extends Fragment {
         BeatBoxFragment fragment = new BeatBoxFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mBeatBox = new BeatBox(getActivity());
     }
 
     @Nullable
